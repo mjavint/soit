@@ -1,0 +1,21 @@
+title: SOIT Documentación
+description: Guías paso a paso para instalar, operar y diagnosticar SOIT (Secure Odoo Infra Tools).
+baseurl: /soit
+url: https://mjavint.github.io
+lang: es
+markdown: kramdown
+highlighter: rouge
+
+plugins:
+  - jekyll-optional-front-matter
+  - jekyll-titles-from-headings
+  - jekyll-sitemap
+
+exclude:
+  - README.md
+
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: "default"

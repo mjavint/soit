@@ -1,0 +1,35 @@
+<aside class="docs-sidebar" id="docs-sidebar" aria-label="Navegación de la documentación">
+  <div class="sidebar-inner">
+    <div class="sidebar-heading">Documentación</div>
+
+    <a class="sidebar-cta" href="{{ '/Instalacion-y-Primeros-Pasos.html' | relative_url }}">
+      <span class="sidebar-cta-icon" aria-hidden="true">→</span>
+      <span>
+        <strong>Primera vez en SOIT</strong>
+        <small>Instala y crea tu primera instancia</small>
+      </span>
+    </a>
+
+    {% for group in site.data.navigation %}
+      <section class="sidebar-group" aria-labelledby="nav-{{ forloop.index }}">
+        <h2 id="nav-{{ forloop.index }}">{{ group.title }}</h2>
+        <ul>
+          {% for item in group.items %}
+            <li>
+              {% if item.url == page.url %}
+                <a href="{{ item.url | relative_url }}" class="active" aria-current="page">{{ item.title }}</a>
+              {% else %}
+                <a href="{{ item.url | relative_url }}">{{ item.title }}</a>
+              {% endif %}
+            </li>
+          {% endfor %}
+        </ul>
+      </section>
+    {% endfor %}
+
+    <div class="sidebar-meta">
+      <span>CLI en inglés · Wiki en español</span>
+      <a href="https://github.com/mjavint/soit" target="_blank" rel="noopener noreferrer">Ver repositorio</a>
+    </div>
+  </div>
+</aside>

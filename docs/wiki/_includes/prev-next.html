@@ -1,0 +1,37 @@
+{% assign found = false %}
+{% assign prev_url = "" %}
+{% assign prev_title = "" %}
+{% assign next_url = "" %}
+{% assign next_title = "" %}
+{% assign last_url = "" %}
+{% assign last_title = "" %}
+{% for group in site.data.navigation %}
+  {% for item in group.items %}
+    {% if item.url == page.url %}
+      {% assign found = true %}
+      {% assign prev_url = last_url %}
+      {% assign prev_title = last_title %}
+    {% elsif found and next_url == "" %}
+      {% assign next_url = item.url %}
+      {% assign next_title = item.title %}
+    {% endif %}
+    {% assign last_url = item.url %}
+    {% assign last_title = item.title %}
+  {% endfor %}
+{% endfor %}
+{% if prev_url != "" or next_url != "" %}
+<nav class="prev-next" aria-label="Página anterior y siguiente" data-pagefind-ignore>
+  {% if prev_url != "" %}
+    <a class="prev-next-card" href="{{ prev_url | relative_url }}">
+      <span class="prev-next-label">← Anterior</span>
+      <span class="prev-next-title">{{ prev_title }}</span>
+    </a>
+  {% endif %}
+  {% if next_url != "" %}
+    <a class="prev-next-card prev-next-next" href="{{ next_url | relative_url }}">
+      <span class="prev-next-label">Siguiente →</span>
+      <span class="prev-next-title">{{ next_title }}</span>
+    </a>
+  {% endif %}
+</nav>
+{% endif %}

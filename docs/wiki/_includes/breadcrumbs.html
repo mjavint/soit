@@ -1,0 +1,15 @@
+{% if page.url != "/Home.html" %}
+<nav class="breadcrumbs" aria-label="Migas de pan" data-pagefind-ignore>
+  <ol>
+    <li><a href="{{ '/' | relative_url }}">Inicio</a></li>
+    {% for group in site.data.navigation %}
+      {% for item in group.items %}
+        {% if item.url == page.url %}
+          <li>{{ group.title }}</li>
+          <li aria-current="page">{{ item.title }}</li>
+        {% endif %}
+      {% endfor %}
+    {% endfor %}
+  </ol>
+</nav>
+{% endif %}

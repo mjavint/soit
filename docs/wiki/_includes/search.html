@@ -1,0 +1,18 @@
+<dialog class="search-dialog" id="search-dialog" aria-labelledby="search-title" data-search-bundle="{{ '/pagefind/' | relative_url }}" data-search-base="{{ '/' | relative_url }}">
+  <div class="search-dialog-panel">
+    <div class="search-dialog-header">
+      <div>
+        <p class="search-dialog-eyebrow">SOIT</p>
+        <h2 id="search-title">Buscar en la documentación</h2>
+      </div>
+      <button class="search-close" type="button" data-search-close aria-label="Cerrar búsqueda">
+        <span aria-hidden="true">Esc</span>
+      </button>
+    </div>
+    <div id="search" class="search-results" data-search-results></div>
+    <p class="search-dialog-hint">
+      Busca comandos, flags, errores o nombres de guías. Usa <kbd>↑</kbd> <kbd>↓</kbd> para navegar y
+      <kbd>Enter</kbd> para abrir un resultado.
+    </p>
+  </div>
+</dialog>
